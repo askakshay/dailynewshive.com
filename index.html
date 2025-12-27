@@ -1,120 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NewsHive: Your Personal AI News Companion</title>
-    <meta name="description" content="Get instant 3-bullet AI news summaries from 100+ sources. Filter by bias, topic, and reading time.">
+    <title>NewsHive | Your Personal AI News Companion</title>
+    <meta name="description" content="NewsHive is the best news app of 2025. Experience an AI news aggregator that delivers 3-bullet summaries, personalized feeds, and bias filters from 100+ sources.">
     
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            50: '#f2f0ff',
+                            100: '#e6e0ff',
+                            500: '#7C3BED', 
+                            600: '#6829d6',
+                            900: '#3c1094',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -15px rgba(124, 59, 237, 0.15)',
+                        'glow': '0 0 20px rgba(124, 59, 237, 0.3)'
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
-        :root {
-            --color-primary: #7C3BED;
-            --color-dark: #1A1A1A;
-            --color-light: #F9FAFB;
-            --color-gray: #6B7280;
-            --spacing-unit: 8px;
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; color: var(--color-dark); line-height: 1.6; background-color: #FFFFFF; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        .text-primary { color: var(--color-primary); }
-
-        /* Navigation */
-        .navbar { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); padding: 16px 0; border-bottom: 1px solid #eee; }
-        .nav-content { display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { display: flex; align-items: center; font-size: 1.5rem; font-weight: 900; text-decoration: none; color: var(--color-dark); }
-        .nav-logo img { height: 32px; margin-right: 12px; }
-
-        /* Buttons */
-        .btn { display: inline-block; padding: 16px 32px; font-weight: 600; text-decoration: none; border-radius: 12px; transition: 0.2s; border: none; cursor: pointer; }
-        .btn-primary { background: var(--color-primary); color: #fff; box-shadow: 0 4px 15px rgba(124, 59, 237, 0.3); }
-        .btn-secondary { background: #fff; color: var(--color-dark); border: 2px solid #E5E7EB; }
-        .btn:hover { transform: translateY(-2px); opacity: 0.9; }
-
-        /* Hero */
-        .hero { padding: 80px 0; text-align: center; }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); letter-spacing: -0.05em; margin-bottom: 24px; }
-        .hero p { font-size: 1.25rem; color: var(--color-gray); max-width: 600px; margin: 0 auto 40px; }
-        .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-        .hero-mockup { margin-top: 64px; }
-        .hero-mockup img { width: 100%; max-width: 320px; border-radius: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
-
-        /* Features */
-        .features { padding: 80px 0; }
-        .feature-row { display: flex; align-items: center; gap: 64px; margin-bottom: 80px; flex-direction: column; text-align: center; }
-        .feature-row.reverse { flex-direction: column; }
-        .feature-row img { width: 100%; max-width: 400px; border-radius: 20px; }
-        .feature-text h2 { font-size: 2.25rem; margin-bottom: 16px; }
-
-        /* Footer */
-        .footer { background: var(--color-dark); color: #fff; padding: 64px 0; text-align: center; }
-        .footer-links a { color: #9CA3AF; margin: 0 16px; text-decoration: none; font-size: 0.9rem; }
-
-        @media (min-width: 768px) {
-            .feature-row { flex-direction: row; text-align: left; }
-            .feature-row.reverse { flex-direction: row-reverse; }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #111827 0%, #7C3BED 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body>
+<body class="font-sans text-gray-900 bg-white antialiased selection:bg-brand-100 selection:text-brand-900">
 
-    <nav class="navbar">
-        <div class="container nav-content">
-            <a href="index.html" class="nav-logo">
-                <img src="/assets/logo.png" alt="NewsHive Logo"> NewsHive
-            </a>
-            <a href="#download" class="btn btn-primary" style="padding: 10px 20px;">Download</a>
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-3 cursor-pointer">
+                    <img src="/assets/logo.png" alt="NewsHive Logo" class="w-10 h-10 object-contain">
+                    <span class="font-bold text-xl tracking-tight text-gray-900">NewsHive</span>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Features</a>
+                    <a href="demo.html" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Watch Demo</a>
+                    <a href="#faq" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">FAQ</a>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#" class="bg-gray-900 hover:bg-brand-600 text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-soft transform hover:-translate-y-0.5">
+                        Download App
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Your Personal <span class="text-primary">AI News Companion</span></h1>
-            <p>The AI news aggregator that cuts through the noise. Get instant 3-bullet summaries and read smarter.</p>
-            <div class="hero-ctas">
-                <a href="#" class="btn btn-primary">Download on Google Play</a>
-                <a href="demo.html" class="btn btn-secondary">Watch Demo Video</a>
-            </div>
-            <div class="hero-mockup">
-                <img src="/assets/app-mockup.png" alt="NewsHive App Interface">
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-brand-50 rounded-full blur-3xl opacity-50 -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="max-w-2xl reveal active">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full border border-brand-100 bg-brand-50 text-brand-600 text-xs font-semibold mb-6">
+                        <span class="flex h-2 w-2 rounded-full bg-brand-500 mr-2"></span>
+                        Mobile Exclusive Experience
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight text-gray-900 leading-[1.1] mb-6">
+                        Your Personal <br>
+                        <span class="text-gradient">AI News Companion</span>
+                    </h1>
+                    <p class="text-xl text-gray-500 mb-8 leading-relaxed max-w-lg">
+                        Stop doom-scrolling. Get 3-bullet summaries from 100+ sources. The only AI news aggregator you need, now on your phone.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <button class="flex items-center justify-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-brand-600 transition-all shadow-xl hover:shadow-soft transform hover:-translate-y-1">
+                            Get on Google Play
+                        </button>
+                        <a href="demo.html" class="flex items-center justify-center gap-2 bg-white text-gray-700 border border-gray-200 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-50 hover:text-brand-600 transition-all">
+                            Watch Video Demo
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative flex justify-center lg:justify-end reveal delay-200">
+                    <img src="/assets/app-mockup.png" alt="NewsHive App Interface" class="w-full max-w-[320px] drop-shadow-2xl rounded-[2.5rem]">
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[340px] h-[640px] bg-brand-500 rounded-[3.5rem] -z-10 opacity-10 rotate-3"></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="features">
-        <div class="container">
-            <div class="feature-row">
-                <div class="feature-text">
-                    <h2>One Feed, <span class="text-primary">100+ Sources</span></h2>
-                    <p>Comprehensive news from global giants and niche publishers in one place.</p>
+    <section id="features" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="reveal">
+                    <div class="w-16 h-16 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-600 mx-auto mb-6">
+                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">AI Summaries</h3>
+                    <p class="text-gray-500">2,000-word articles condensed into 3 key bullets.</p>
                 </div>
-                <img src="/assets/app-mockup.png" alt="Sources Feed">
-            </div>
-            <div class="feature-row reverse">
-                <div class="feature-text">
-                    <h2>Instant <span class="text-primary">AI Summaries</span></h2>
-                    <p>Read 10 articles in the time it takes to read one with our 3-bullet digests.</p>
                 </div>
-                <img src="/assets/app-mockup.png" alt="AI Summaries">
-            </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div style="font-size: 1.5rem; font-weight: 900; color: var(--color-primary); margin-bottom: 24px;">NewsHive</div>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="mailto:support@newshive.com">Contact</a>
-            </div>
-            <p style="margin-top: 32px; color: #4B5563; font-size: 0.8rem;">&copy; 2025 NewsHive. All rights reserved.</p>
-        </div>
-    </footer>
-
-</body>
-</html>
+    <footer class="bg-gray-900 text-gray-400 py-12 border-
