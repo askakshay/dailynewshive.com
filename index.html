@@ -6,8 +6,6 @@
     <title>NewsHive | Your Personal AI News Companion</title>
     <meta name="description" content="NewsHive is the best news app of 2025. Experience an AI news aggregator that delivers 3-bullet summaries, personalized feeds, and bias filters from 100+ sources.">
     
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://newshive.app/">
     <meta property="og:title" content="NewsHive | Your Personal AI News Companion">
@@ -66,6 +64,7 @@
     </script>
 
     <style>
+        /* Custom Utilities */
         .glass-nav {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
@@ -81,11 +80,13 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* Gradient Text */
         .text-gradient {
             background: linear-gradient(135deg, #111827 0%, #7C3BED 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        /* Mobile Device Mockup CSS */
         .iphone-frame {
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             border: 8px solid #1f2937;
@@ -101,19 +102,24 @@
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-2 cursor-pointer" onclick="window.location.href='index.html'">
-                    <img src="/assets/logo.png" alt="NewsHive" class="w-10 h-10 object-contain">
+                <div class="flex items-center gap-2 cursor-pointer">
+                    <div class="w-10 h-10 bg-brand-500 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-glow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.5 3.5L7.5 8.5V15.5L16.5 20.5V3.5Z" fill="white" fill-opacity="0.3"/>
+                            <path d="M7.5 3.5L16.5 8.5V15.5L7.5 20.5V3.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <span class="font-bold text-xl tracking-tight text-gray-900">NewsHive</span>
                 </div>
 
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#features" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Features</a>
-                    <a href="demo.html" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Demo</a>
+                    <a href="#demo" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Demo</a>
                     <a href="#faq" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">FAQ</a>
                 </div>
 
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="demo.html" class="text-sm font-medium text-brand-600 hover:text-brand-900">Watch Demo</a>
+                    <a href="#" class="text-sm font-medium text-brand-600 hover:text-brand-900">Try on Web (Beta)</a>
                     <a href="#" class="bg-gray-900 hover:bg-brand-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-soft transform hover:-translate-y-0.5">
                         Download App
                     </a>
@@ -155,9 +161,9 @@
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" /></svg>
                             Get on Google Play
                         </button>
-                        <a href="demo.html" class="flex items-center justify-center gap-2 bg-white text-gray-700 border border-gray-200 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-50 hover:text-brand-600 transition-all">
-                            Watch Video Demo
-                        </a>
+                        <button class="flex items-center justify-center gap-2 bg-white text-gray-700 border border-gray-200 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-50 hover:text-brand-600 transition-all">
+                            Try on Web (Beta)
+                        </button>
                     </div>
                     
                     <p class="text-sm text-gray-400">✨ Zero ads during beta period.</p>
@@ -165,7 +171,34 @@
 
                 <div class="relative lg:h-[600px] flex justify-center lg:justify-end reveal delay-200">
                     <div class="iphone-frame w-[300px] h-[600px] bg-white relative z-10">
-                        <img src="/assets/app-mockup.png" alt="NewsHive App" class="w-full h-full object-cover">
+                        <div class="bg-gray-50 p-4 border-b border-gray-100 flex justify-between items-center">
+                            <div class="font-bold text-brand-600">NewsHive</div>
+                            <div class="w-8 h-8 rounded-full bg-gray-200"></div>
+                        </div>
+                        <div class="p-4 space-y-4">
+                            <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-3">
+                                <div class="h-32 bg-gray-100 rounded-lg mb-3 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=400&q=80')"></div>
+                                <h3 class="font-bold text-gray-900 text-sm leading-tight mb-2">Global Markets Rally as Tech Stocks Surge</h3>
+                                <ul class="space-y-1">
+                                    <li class="flex items-start gap-2 text-xs text-gray-600">
+                                        <span class="text-brand-500 font-bold">•</span> AI sector driving 15% growth.
+                                    </li>
+                                    <li class="flex items-start gap-2 text-xs text-gray-600">
+                                        <span class="text-brand-500 font-bold">•</span> Analysts predict sustained bull run.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-3 opacity-60">
+                                <div class="flex gap-2 mb-2">
+                                    <span class="px-2 py-0.5 bg-blue-50 text-blue-600 text-[10px] rounded font-bold">Politics</span>
+                                    <span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-[10px] rounded">Neutral Bias</span>
+                                </div>
+                                <h3 class="font-bold text-gray-900 text-sm leading-tight">New Climate Policy Announced</h3>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 right-6 w-12 h-12 bg-brand-500 rounded-full shadow-lg flex items-center justify-center text-white">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
+                        </div>
                     </div>
                     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[320px] h-[620px] bg-brand-500 rounded-[3.5rem] -z-10 opacity-20 rotate-3"></div>
                 </div>
@@ -194,4 +227,215 @@
 
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="group p-8 bg-white border border-gray-100 rounded-3xl hover:shadow-xl hover:border-brand-200 transition-all duration-300 reveal">
-                    <div class="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-
+                    <div class="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-600 mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Instant AI Summaries</h3>
+                    <p class="text-gray-500 leading-relaxed">Our LLM engine condenses 2,000-word articles into 3 key bullets with essential quotes intact. Read 5x faster.</p>
+                </div>
+
+                <div class="group p-8 bg-white border border-gray-100 rounded-3xl hover:shadow-xl hover:border-brand-200 transition-all duration-300 reveal delay-100">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">100+ Verified Sources</h3>
+                    <p class="text-gray-500 leading-relaxed">From global giants to niche tech blogs. We scan the entire spectrum so you don't have to manage 50 tabs.</p>
+                </div>
+
+                <div class="group p-8 bg-white border border-gray-100 rounded-3xl hover:shadow-xl hover:border-brand-200 transition-all duration-300 reveal delay-200">
+                    <div class="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Bias & Topic Filters</h3>
+                    <p class="text-gray-500 leading-relaxed">Step out of your echo chamber. Toggle between 'Left', 'Center', and 'Right' perspectives instantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-900 text-white relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-30 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-gray-700">
+                <div class="p-6">
+                    <div class="text-5xl font-bold text-brand-500 mb-2 font-mono counter" data-target="2">0</div>
+                    <div class="text-lg text-gray-300">Million Summaries Generated</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-5xl font-bold text-brand-500 mb-2 font-mono counter" data-target="150">0</div>
+                    <div class="text-lg text-gray-300">Sources Scanned Hourly</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-5xl font-bold text-brand-500 mb-2 font-mono counter" data-target="4.8">0</div>
+                    <div class="text-lg text-gray-300">App Store Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-16">What early users are saying</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-blue-400"></div>
+                        <div>
+                            <p class="font-bold text-gray-900">Sarah J.</p>
+                            <p class="text-xs text-gray-500">Product Manager</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"I used to spend an hour every morning reading news. NewsHive cut that to 15 minutes. The AI summaries are shockingly accurate."</p>
+                </div>
+                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 reveal delay-100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-blue-400"></div>
+                        <div>
+                            <p class="font-bold text-gray-900">David Chen</p>
+                            <p class="text-xs text-gray-500">Journalist</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"The bias filter is the killer feature. Seeing how the same story is framed by different outlets is eye-opening."</p>
+                </div>
+                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 reveal delay-200">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-red-400 to-orange-400"></div>
+                        <div>
+                            <p class="font-bold text-gray-900">Elena R.</p>
+                            <p class="text-xs text-gray-500">Student</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Finally, a news app that doesn't feel like a casino. It's clean, fast, and respectful of my time."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <details class="group bg-gray-50 rounded-xl p-4 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900 font-medium">
+                        <h3 class="text-lg">Is NewsHive really free?</h3>
+                        <span class="relative h-5 w-5 shrink-0">
+                            <svg class="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </span>
+                    </summary>
+                    <p class="mt-4 leading-relaxed text-gray-700">Yes! During our beta phase, NewsHive is completely free with zero ads. We plan to introduce a premium tier later for power users, but a free version will always exist.</p>
+                </details>
+
+                <details class="group bg-gray-50 rounded-xl p-4 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900 font-medium">
+                        <h3 class="text-lg">How does the AI summarization work?</h3>
+                        <span class="relative h-5 w-5 shrink-0">
+                             <svg class="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </span>
+                    </summary>
+                    <p class="mt-4 leading-relaxed text-gray-700">We use advanced LLMs (Large Language Models) to read the full article and extract the core facts, retaining key quotes. We prioritize factual accuracy over sensationalism.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brand-500 text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to upgrade your news diet?</h2>
+            <p class="text-brand-100 text-xl mb-10">Join 50,000+ smart readers today.</p>
+            <button class="bg-white text-brand-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 shadow-xl transition-transform hover:scale-105">
+                Download Now - Free
+            </button>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="col-span-2 md:col-span-1">
+                <span class="text-white font-bold text-xl block mb-4">NewsHive</span>
+                <p class="text-sm">Your Personal AI News Companion. Built for the curious mind.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Product</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition">Features</a></li>
+                    <li><a href="#" class="hover:text-white transition">Pricing</a></li>
+                    <li><a href="#" class="hover:text-white transition">Download</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Company</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition">About</a></li>
+                    <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                    <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Stay Updated</h4>
+                <form class="flex gap-2">
+                    <input type="email" placeholder="Enter email" class="bg-gray-800 border-none rounded-lg px-3 py-2 text-sm w-full focus:ring-2 focus:ring-brand-500">
+                    <button class="bg-brand-500 text-white px-3 py-2 rounded-lg text-sm hover:bg-brand-600">Go</button>
+                </form>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-gray-800 text-center text-xs">
+            &copy; 2025 NewsHive Inc. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // 1. Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 150;
+            
+            revealElements.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', revealOnScroll);
+
+        // 2. Stats Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        let hasAnimated = false;
+
+        const animateCounters = () => {
+            const section = document.querySelector('.counter').closest('section');
+            const sectionPos = section.getBoundingClientRect().top;
+            const screenPos = window.innerHeight / 1.3;
+
+            if(sectionPos < screenPos && !hasAnimated){
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const isFloat = target % 1 !== 0;
+                    const increment = target / 100;
+                    
+                    const updateCounter = () => {
+                        const count = +counter.innerText;
+                        if(count < target) {
+                            counter.innerText = isFloat ? (count + increment).toFixed(1) : Math.ceil(count + increment);
+                            setTimeout(updateCounter, 20);
+                        } else {
+                            counter.innerText = target + (target > 10 ? '+' : ''); // Add + for large numbers
+                        }
+                    };
+                    updateCounter();
+                });
+                hasAnimated = true;
+            }
+        }
+        
+        window.addEventListener('scroll', animateCounters);
+
+        // Initial check
+        revealOnScroll();
+    </script>
+</body>
+</html>
