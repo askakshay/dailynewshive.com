@@ -97,6 +97,27 @@
             position: relative;
             background: #fff;
         }
+        /* Frame Animation */
+        .frame-container {
+            perspective: 1000px;
+        }
+        .frame-animate {
+            animation: floatFrame 4s ease-in-out infinite;
+        }
+        .frame-animate-delay {
+            animation: floatFrame 4s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+        @keyframes floatFrame {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1) translateZ(0);
+                z-index: 10;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(0.95) translateZ(-20px);
+                z-index: 5;
+            }
+        }
     </style>
 </head>
 <body class="font-sans text-gray-900 bg-white antialiased selection:bg-brand-100 selection:text-brand-900">
@@ -162,11 +183,13 @@
                     <p class="text-sm text-gray-400">✨ Zero ads during beta period.</p>
                 </div>
 
-                <div class="relative lg:h-[600px] flex justify-center lg:justify-end reveal delay-200">
-                    <div class="iphone-frame w-[300px] h-[600px] bg-white relative z-10">
+                <div class="relative lg:h-[600px] flex justify-center lg:justify-end reveal delay-200 frame-container">
+                    <div class="iphone-frame w-[300px] h-[600px] bg-white absolute top-1/2 left-1/2 frame-animate">
                         <img src="/assets/app-mockup.png" alt="NewsHive App Screenshot" class="w-full h-full object-cover">
                     </div>
-                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[320px] h-[620px] bg-brand-500 rounded-[3.5rem] -z-10 opacity-20 rotate-3"></div>
+                    <div class="iphone-frame w-[300px] h-[600px] bg-white absolute top-1/2 left-1/2 frame-animate-delay">
+                        <img src="/assets/app-mockup.png" alt="NewsHive App Screenshot" class="w-full h-full object-cover">
+                    </div>
                 </div>
             </div>
         </div>
