@@ -67,6 +67,9 @@
 
     <style>
         /* Custom Utilities */
+        :root {
+            --phone-shift-x: 32px; /* positive = move right, negative = move left */
+        }
         .glass-nav {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
@@ -112,14 +115,14 @@
         /* Front phone state */
         .front {
             z-index: 10;
-            transform: translate(-50%, -50%) translateX(0) scale(1);
+            transform: translate(calc(-50% + var(--phone-shift-x)), -50%) translateX(0) scale(1);
             opacity: 1;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
         /* Back phone state */
         .back {
             z-index: 5;
-            transform: translate(-50%, -50%) translateX(-48px) scale(0.97);
+            transform: translate(calc(-50% + var(--phone-shift-x)), -50%) translateX(-48px) scale(0.97);
             opacity: 1;
             box-shadow: 0 15px 35px -18px rgba(0, 0, 0, 0.15);
         }
