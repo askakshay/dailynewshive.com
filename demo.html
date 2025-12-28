@@ -1,79 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watch Demo | NewsHive AI</title>
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap">
-    <style>
-        :root { --color-primary: #7C3BED; --color-dark: #1A1A1A; }
-        body { font-family: 'Inter', sans-serif; background-color: #fff; margin: 0; color: var(--color-dark); }
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px; }
-        
-        .navbar { padding: 20px 0; border-bottom: 1px solid #eee; }
-        .nav-logo { display: flex; align-items: center; font-size: 1.25rem; font-weight: 900; text-decoration: none; color: var(--color-dark); }
-        .nav-logo img { height: 28px; margin-right: 10px; }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NewsHive Demo</title>
 
-        .video-header { text-align: center; margin-bottom: 40px; }
-        .video-header h1 { font-size: 2.5rem; letter-spacing: -0.03em; margin-bottom: 12px; }
-        
-        /* Responsive Video Container (16:9) */
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Phone frame */
+        .phone-frame {
+            width: 300px;
+            aspect-ratio: 9 / 16;
+            border: 8px solid #1f2937;
+            border-radius: 2.5rem;
             overflow: hidden;
-            border-radius: 24px;
+            position: relative;
+            background: black;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            background: #000;
         }
-        .video-wrapper iframe {
+
+        /* Play button overlay */
+        .play-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+
+        .play-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .play-button {
+            width: 72px;
+            height: 72px;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .play-button svg {
+            margin-left: 4px;
+        }
+
+        iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
-
-        .cta-area { text-align: center; margin-top: 60px; }
-        .btn { display: inline-block; padding: 16px 32px; font-weight: 600; text-decoration: none; border-radius: 12px; background: var(--color-primary); color: #fff; }
-
-        .footer { margin-top: 80px; padding: 40px 0; border-top: 1px solid #eee; text-align: center; font-size: 0.85rem; color: #9CA3AF; }
     </style>
 </head>
-<body>
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="nav-logo">
-                <img src="/assets/logo.png" alt="Logo"> NewsHive
-            </a>
+<body class="bg-white text-gray-900">
+
+    <section class="min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-6 w-full">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                <!-- LEFT CONTENT -->
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                        See how NewsHive <br class="hidden md:block" />
+                        simplifies the news
+                    </h1>
+
+                    <p class="text-lg text-gray-600 mb-6 max-w-xl">
+                        This is a real screen recording of the NewsHive app.
+                        No mockups. No slides. Just how the app actually works,
+                        from opening a headline to reading a 3-bullet summary.
+                    </p>
+
+                    <ul class="space-y-4 text-gray-700">
+                        <li>• Real articles, real summaries</li>
+                        <li>• Before vs after AI summarization</li>
+                        <li>• Bias-aware reading experience</li>
+                    </ul>
+                </div>
+
+                <!-- RIGHT VIDEO -->
+                <div class="flex justify-center lg:justify-end">
+                    <div class="phone-frame">
+
+                        <!-- PLAY OVERLAY -->
+                        <div id="playOverlay" class="play-overlay">
+                            <div class="play-button">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="black">
+                                    <path d="M8 5v14l11-7z"></path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- YOUTUBE IFRAME -->
+                        <iframe
+                            id="demoVideo"
+                            src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID?enablejsapi=1&rel=0&playsinline=1"
+                            allow="autoplay; encrypted-media"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </nav>
+    </section>
 
-    <div class="container">
-        <div class="video-header">
-            <h1>Experience <span class="text-primary">NewsHive</span></h1>
-            <p>See how AI transforms your daily news routine.</p>
-        </div>
+    <!-- PLAY CONTROL -->
+    <script>
+        const overlay = document.getElementById('playOverlay');
+        const iframe = document.getElementById('demoVideo');
 
-        <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&showinfo=0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-            </iframe>
-        </div>
-
-        <div class="cta-area">
-            <a href="index.html" class="btn">Back to Home</a>
-        </div>
-    </div>
-
-    <footer class="footer">
-        &copy; 2025 NewsHive. High-speed information for a high-speed world.
-    </footer>
+        overlay.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+            iframe.contentWindow.postMessage(
+                JSON.stringify({
+                    event: 'command',
+                    func: 'playVideo',
+                    args: []
+                }),
+                '*'
+            );
+        });
+    </script>
 
 </body>
 </html>
