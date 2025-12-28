@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NewsHive Demo</title>
 
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,8 +22,16 @@
                     },
                     colors: {
                         brand: {
+                            50: '#f2f0ff',
+                            100: '#e6e0ff',
                             500: '#7C3BED',
+                            600: '#6829d6',
+                            900: '#3c1094',
                         }
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -15px rgba(124, 59, 237, 0.15)',
+                        'glow': '0 0 20px rgba(124, 59, 237, 0.3)'
                     }
                 }
             }
@@ -29,16 +39,23 @@
     </script>
 
     <style>
-        /* Same phone frame language as index */
+        /* Custom Utilities */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        /* Mobile Device Mockup CSS - matching index.html */
         .iphone-frame {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             border: 8px solid #1f2937;
             border-radius: 3rem;
             overflow: hidden;
-            background: black;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            aspect-ratio: 9 / 16;
-            width: 300px;
             position: relative;
+            background: #000;
+            width: 300px;
+            height: 600px;
         }
 
         /* Play overlay */
@@ -78,35 +95,67 @@
     </style>
 </head>
 
-<body class="font-sans text-gray-900 bg-white">
+<body class="font-sans text-gray-900 bg-white antialiased selection:bg-brand-100 selection:text-brand-900">
 
-    <section class="pt-32 pb-24">
-        <div class="max-w-7xl mx-auto px-6">
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-2 cursor-pointer">
+                    <img src="/assets/logo.png" alt="NewsHive Logo" class="w-10 h-10">
+                    <span class="font-bold text-xl tracking-tight text-gray-900">NewsHive</span>
+                </div>
 
-            <div class="grid lg:grid-cols-2 gap-10 items-center">
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#features" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Features</a>
+                    <a href="demo.html" class="text-sm font-medium text-brand-600">Demo</a>
+                    <a href="index.html#faq" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">FAQ</a>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="index.html" class="bg-gray-900 hover:bg-brand-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-soft transform hover:-translate-y-0.5">
+                        Download App
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-24 pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-6 items-center">
 
                 <!-- LEFT CONTENT -->
                 <div class="max-w-xl">
-                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 text-gray-900">
                         See NewsHive <br>
-                        in action
+                        <span class="text-brand-600">in action</span>
                     </h1>
 
-                    <p class="text-lg text-gray-600 mb-6">
+                    <p class="text-xl text-gray-500 mb-6 leading-relaxed">
                         This is a real screen recording of the NewsHive app.
                         From opening a headline to reading the AI summary.
                         No mockups. No narration.
                     </p>
 
-                    <ul class="space-y-3 text-gray-700">
-                        <li>• Before vs after AI summaries</li>
-                        <li>• 3-bullet extraction in real time</li>
-                        <li>• Clean, bias-aware reading flow</li>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start gap-2">
+                            <span class="text-brand-500 font-bold">•</span>
+                            <span>Before vs after AI summaries</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-brand-500 font-bold">•</span>
+                            <span>3-bullet extraction in real time</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-brand-500 font-bold">•</span>
+                            <span>Clean, bias-aware reading flow</span>
+                        </li>
                     </ul>
                 </div>
 
                 <!-- RIGHT FRAME (closer to text) -->
-                <div class="flex justify-start lg:justify-end">
+                <div class="flex justify-center lg:justify-end">
                     <div class="iphone-frame">
 
                         <!-- Play overlay -->
