@@ -1,34 +1,170 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NewsHive - Privacy Policy</title>
+  
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f2f0ff',
+              100: '#e6e0ff',
+              500: '#7C3BED',
+              600: '#6829d6',
+              900: '#3c1094',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6;color:#111;background:#f7f7fb;padding:24px;}
-    .container{max-width:900px;margin:0 auto;background:#fff;padding:32px;border-radius:10px;box-shadow:0 6px 18px rgba(20,20,50,0.06);}
-    h1,h2,h3{color:#0f172a}
-    h1{font-size:28px;margin-bottom:6px}
-    h2{font-size:20px;margin-top:28px;margin-bottom:12px;border-bottom:2px solid #e2e8f0;padding-bottom:6px}
-    h3{font-size:16px;margin-top:18px;margin-bottom:8px}
-    p.lead{color:#334155;font-size:16px}
-    table{width:100%;border-collapse:collapse;margin:12px 0}
-    th,td{padding:10px;border:1px solid #e6edf3;text-align:left;vertical-align:top}
-    th{background:#f8fafc;font-weight:600}
-    footer{font-size:13px;color:#475569;margin-top:32px;padding-top:18px;border-top:1px solid #e2e8f0}
-    a{color:#0b5cff;text-decoration:none}
-    a:hover{text-decoration:underline}
-    .muted{color:#64748b}
-    .note{background:#fffbeb;border-left:4px solid #f59e0b;padding:12px 16px;border-radius:6px;margin:16px 0}
-    .info-box{background:#eff6ff;border-left:4px solid #3b82f6;padding:12px 16px;border-radius:6px;margin:16px 0}
-    .warning{background:#fef2f2;border-left:4px solid #ef4444;padding:12px 16px;border-radius:6px;margin:16px 0}
-    ul{margin:8px 0;padding-left:24px}
-    li{margin:6px 0}
-    strong{color:#0f172a}
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .content-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 32px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(20,20,50,0.06);
+    }
+    h1, h2, h3 {
+      color: #0f172a;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+    h2 {
+      font-size: 20px;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 6px;
+    }
+    h3 {
+      font-size: 16px;
+      margin-top: 18px;
+      margin-bottom: 8px;
+    }
+    p.lead {
+      color: #334155;
+      font-size: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #e6edf3;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f8fafc;
+      font-weight: 600;
+    }
+    footer {
+      font-size: 13px;
+      color: #475569;
+      margin-top: 32px;
+      padding-top: 18px;
+      border-top: 1px solid #e2e8f0;
+    }
+    a {
+      color: #7C3BED;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: #6829d6;
+    }
+    .muted {
+      color: #64748b;
+    }
+    .note {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin: 16px 0;
+    }
+    .info-box {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin: 16px 0;
+    }
+    .warning {
+      background: #fef2f2;
+      border-left: 4px solid #ef4444;
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin: 16px 0;
+    }
+    ul {
+      margin: 8px 0;
+      padding-left: 24px;
+    }
+    li {
+      margin: 6px 0;
+    }
+    strong {
+      color: #0f172a;
+    }
   </style>
 </head>
-<body>
-  <div class="container">
+<body class="font-sans text-gray-900 bg-gray-50 antialiased">
+
+  <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex items-center gap-2 cursor-pointer">
+          <img src="/assets/logo.png" alt="NewsHive Logo" class="w-10 h-10">
+          <span class="font-bold text-xl tracking-tight text-gray-900">NewsHive</span>
+        </div>
+
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html#features" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Features</a>
+          <a href="demo.html" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">Demo</a>
+          <a href="index.html#faq" class="text-sm font-medium text-gray-600 hover:text-brand-600 transition">FAQ</a>
+        </div>
+
+        <div class="hidden md:flex items-center gap-4">
+          <a href="index.html" class="bg-gray-900 hover:bg-brand-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-soft transform hover:-translate-y-0.5">
+            Download App
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="pt-24 pb-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="content-container">
     <h1>Privacy Policy — NewsHive</h1>
     <p class="muted">Effective Date: October 8, 2025 | Last Updated: December 11, 2025</p>
 
@@ -438,10 +574,12 @@
       <strong>Google Play Console Data Safety:</strong> This Privacy Policy is designed to align with Google Play Store requirements. Ensure that all information disclosed here is accurately reflected in your Google Play Console Data Safety form, including data collection types, purposes, sharing practices, and security measures.
     </div>
 
-    <footer>
-      <p class="muted">© 2025 NewsHive by Akshay Kumar. All rights reserved.</p>
-      <p class="muted">This privacy policy complies with applicable data protection laws including GDPR, CCPA, and Indian privacy regulations.</p>
-    </footer>
-  </div>
+        <footer>
+          <p class="muted">© 2025 NewsHive by Akshay Kumar. All rights reserved.</p>
+          <p class="muted">This privacy policy complies with applicable data protection laws including GDPR, CCPA, and Indian privacy regulations.</p>
+        </footer>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
