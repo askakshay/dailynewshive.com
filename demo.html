@@ -1,26 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NewsHive Demo</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            500: '#7C3BED',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        /* Phone frame */
-        .phone-frame {
-            width: 300px;
-            aspect-ratio: 9 / 16;
+        /* Same phone frame language as index */
+        .iphone-frame {
             border: 8px solid #1f2937;
-            border-radius: 2.5rem;
+            border-radius: 3rem;
             overflow: hidden;
-            position: relative;
             background: black;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            aspect-ratio: 9 / 16;
+            width: 300px;
+            position: relative;
         }
 
-        /* Play button overlay */
+        /* Play overlay */
         .play-overlay {
             position: absolute;
             inset: 0;
@@ -29,7 +50,7 @@
             justify-content: center;
             background: rgba(0, 0, 0, 0.25);
             cursor: pointer;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.25s ease;
             z-index: 10;
         }
 
@@ -42,15 +63,11 @@
             width: 72px;
             height: 72px;
             border-radius: 9999px;
-            background: rgba(255, 255, 255, 0.95);
+            background: white;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-
-        .play-button svg {
-            margin-left: 4px;
         }
 
         iframe {
@@ -61,37 +78,38 @@
     </style>
 </head>
 
-<body class="bg-white text-gray-900">
+<body class="font-sans text-gray-900 bg-white">
 
-    <section class="min-h-screen flex items-center">
-        <div class="max-w-7xl mx-auto px-6 w-full">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+    <section class="pt-32 pb-24">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
 
                 <!-- LEFT CONTENT -->
-                <div>
-                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
-                        See how NewsHive <br class="hidden md:block" />
-                        simplifies the news
+                <div class="max-w-xl">
+                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+                        See NewsHive <br>
+                        in action
                     </h1>
 
-                    <p class="text-lg text-gray-600 mb-6 max-w-xl">
+                    <p class="text-lg text-gray-600 mb-6">
                         This is a real screen recording of the NewsHive app.
-                        No mockups. No slides. Just how the app actually works,
-                        from opening a headline to reading a 3-bullet summary.
+                        From opening a headline to reading the AI summary.
+                        No mockups. No narration.
                     </p>
 
-                    <ul class="space-y-4 text-gray-700">
-                        <li>• Real articles, real summaries</li>
-                        <li>• Before vs after AI summarization</li>
-                        <li>• Bias-aware reading experience</li>
+                    <ul class="space-y-3 text-gray-700">
+                        <li>• Before vs after AI summaries</li>
+                        <li>• 3-bullet extraction in real time</li>
+                        <li>• Clean, bias-aware reading flow</li>
                     </ul>
                 </div>
 
-                <!-- RIGHT VIDEO -->
-                <div class="flex justify-center lg:justify-end">
-                    <div class="phone-frame">
+                <!-- RIGHT FRAME (closer to text) -->
+                <div class="flex justify-start lg:justify-end">
+                    <div class="iphone-frame">
 
-                        <!-- PLAY OVERLAY -->
+                        <!-- Play overlay -->
                         <div id="playOverlay" class="play-overlay">
                             <div class="play-button">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="black">
@@ -100,7 +118,7 @@
                             </div>
                         </div>
 
-                        <!-- YOUTUBE IFRAME -->
+                        <!-- YouTube embed -->
                         <iframe
                             id="demoVideo"
                             src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID?enablejsapi=1&rel=0&playsinline=1"
@@ -115,7 +133,6 @@
         </div>
     </section>
 
-    <!-- PLAY CONTROL -->
     <script>
         const overlay = document.getElementById('playOverlay');
         const iframe = document.getElementById('demoVideo');
